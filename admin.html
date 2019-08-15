@@ -31,11 +31,11 @@
 					ref.set({
 						loc: input
 					});
-				});
-				t1.input('Password ?', function(input) {
+					t1.input('Password ?', function(input) {
 					ref.set({
 						pwd: md5(input)
 					});
+				});
 				});
 			} else {
 				t1.print('$')
