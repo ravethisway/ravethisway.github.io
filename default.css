@@ -1,0 +1,9 @@
+body{
+    margin: 0;
+}
+
+.Terminal{
+    padding: 2em;
+    width: 100% !important;
+    height: 100vh !important;
+}
