@@ -15,6 +15,7 @@
  		var t1 = new Terminal()
 		t1.setHeight("200px")
 		t1.setWidth('600px')
+		t1.setTextColor('#00FF41')
 		document.body.appendChild(t1.html)
 
 		t1.print('Hello, raver!')
@@ -23,11 +24,11 @@
 				//while (found == false){
 					t1.password('Enter password:', function (password) {
 						if (password == 'bxl') {
-							t1.print(' ')
+							t1.print('@ ')
 							t1.print('Geolocation of the rave : ...')
 							found = true
 						} else {
-							t1.print(' ')
+							t1.print('$ ')
 							t1.print('Wrong password')
 						}	
 					});
@@ -56,3 +57,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 </script>
+
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
