@@ -27,14 +27,14 @@
 		t1.password('Enter password:', function (password) {
 			if (md5(password) == pdw_amid) {
 				t1.print('@')
-				t1.geo('Geolocation of the rave ?', function(geo) {
+				t1.input('Geolocation of the rave ?', function(input) {
 					ref.set({
-						loc: geo
+						loc: input
 					});
 				});
-				t1.pwd('Password ?', function(pwd) {
+				t1.input('Password ?', function(input) {
 					ref.set({
-						pwd: md5(pwd)
+						pwd: md5(input)
 					});
 				});
 			} else {
