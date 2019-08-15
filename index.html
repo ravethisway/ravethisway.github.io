@@ -19,10 +19,12 @@
 		t1.print('Hello, raver!')
 			t1.input('Whats your name?', function (input) {
 				t1.print('Welcome, ' + input)
-				while (password != 'bxl'){
+				let found = false
+				while (!found){
 					t1.password('Enter password:', function (password) {
 						if (password == 'bxl') {
 							t1.print('Geolocation of the rave : ...')
+							found = true
 						} else {
 							t1.print('Wrong password')
 						}	
