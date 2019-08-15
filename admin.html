@@ -25,7 +25,7 @@
 		
 		t1.print('Hello, administrator!')
 		t1.password('Enter password:', function (password) {
-			if (md5(password) == pdw_amid) {
+			if (md5(password) == pwd_admin) {
 				t1.print('@')
 				t1.input('Geolocation of the rave ?', function(input) {
 					ref.set({
