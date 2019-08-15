@@ -6,6 +6,7 @@
   <TITLE>RaveThisWay</TITLE>
   <LINK REL="STYLESHEET" HREF="default.css">
 		<script src="terminal.js"></script>
+		<script src="support.js"></script>
   <META NAME="RaveThisWay" CONTENT="Where To Go">
  </HEAD>
  <BODY>
@@ -15,9 +16,12 @@
 		t1.setWidth('600px')
 		document.body.appendChild(t1.html)
 
-		t1.print('Hello, world!')
+		t1.print('Hello, raver!')
 			t1.input('Whats your name?', function (input) {
 				t1.print('Welcome, ' + input)
+			t3.password('Enter password:', function (password) {
+						t3.print(md5(password))
+				});
 			});
 
 	</script>
