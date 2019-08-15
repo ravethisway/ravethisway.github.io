@@ -1,58 +1,64 @@
 <!DOCTYPE HTML>
 <HTML>
- <HEAD>
-  <META CHARSET="UTF-8">
-  <BASE HREF="ravethisway.github.io">
-  <TITLE>RaveThisWay</TITLE>
-  <LINK REL="STYLESHEET" HREF="default.css">
-		<script src="terminal.js"></script>
-		<script src="support.js"></script>
-  <META NAME="RaveThisWay" CONTENT="Where To Go">
- </HEAD>
- <BODY>
- 	<script>
+
+<HEAD>
+	<META CHARSET="UTF-8">
+	<BASE HREF="ravethisway.github.io">
+	<TITLE>RaveThisWay</TITLE>
+	<LINK REL="STYLESHEET" HREF="default.css">
+	<script src="terminal.js"></script>
+	<script src="support.js"></script>
+
+	<META NAME="RaveThisWay" CONTENT="Where To Go">
+</HEAD>
+
+<body>
+	<script>
 		var found = false
- 		var t1 = new Terminal()
+		var t1 = new Terminal()
+		var pwd;
 		t1.setHeight("200px")
 		t1.setWidth('600px')
 		document.body.appendChild(t1.html)
 
 		t1.print('Hello, raver!')
-			t1.input('Whats your name?', function (input) {
-				t1.print('Welcome, ' + input)
-				//while (found == false){
-					t1.password('Enter password:', function (password) {
-						if (password == 'bxl') {
-							t1.print(' ')
-							t1.print('Geolocation of the rave : ...')
-							found = true
-						} else {
-							t1.print(' ')
-							t1.print('Wrong password')
-						}	
-					});
-				//}
+		t1.input('Whats your name?', function (input) {
+			t1.print('Welcome, ' + input)
+			//while (found == false){
+			t1.password('Enter password:', function (password) {
+				if (password == pwd) {
+					t1.print(' ')
+					t1.print('Geolocation of the rave : ...')
+					found = true
+				} else {
+					t1.print(' ')
+					t1.print('Wrong password')
+				}
 			});
+			//}
+		});
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyC-lT_T65uL5U5jGPrnC0oVW1j-H000sZs",
+			authDomain: "ravethisway.firebaseapp.com",
+			databaseURL: "https://ravethisway.firebaseio.com",
+			projectId: "ravethisway",
+			storageBucket: "ravethisway.appspot.com",
+			messagingSenderId: "1063733035747",
+			appId: "1:1063733035747:web:3810a6ed91ab9d2b"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		var database = firebase.database();
+
+		var ref = firebase.database().ref("pwd");
+		ref.on("value", function (snapshot) {
+			pwd = snapshot.val().pwd;
+		});
 
 	</script>
-
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#config-web-app -->
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyC-lT_T65uL5U5jGPrnC0oVW1j-H000sZs",
-    authDomain: "ravethisway.firebaseapp.com",
-    databaseURL: "https://ravethisway.firebaseio.com",
-    projectId: "ravethisway",
-    storageBucket: "",
-    messagingSenderId: "1063733035747",
-    appId: "1:1063733035747:web:3810a6ed91ab9d2b"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
+</body>
