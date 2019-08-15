@@ -16,7 +16,7 @@
 	<script>
 		var found = false
 		var t1 = new Terminal()
-		var pwd;
+		var pwd_admin;
 		t1.setHeight("200px")
 		t1.setWidth('600px')
 		t1.setTextColor('#00FF41')
@@ -25,13 +25,17 @@
 		
 		t1.print('Hello, administrator!')
 		t1.password('Enter password:', function (password) {
-			if (password == ''/*psw_amid*/) {
+			if (md5(password) == pdw_amid) {
 				t1.print('@')
 				t1.geo('Geolocation of the rave ?', function(geo) {
-					//store
+					ref.set({
+						loc: geo
+					});
 				});
-				t1.geo('Password ?', function(geo) {
-					//store
+				t1.pwd('Password ?', function(pwd) {
+					ref.set({
+						pwd: md5(pwd)
+					});
 				});
 			} else {
 				t1.print('$')
@@ -60,8 +64,7 @@
 
 		var ref = firebase.database().ref("pwd");
 		ref.on("value", function (snapshot) {
-			pwd = snapshot.val().pwd;
-			loc = snapshot.val().location;
+			pwd_admin = snapshot.val().pwd_admin;
 		});
 
 	</script>
