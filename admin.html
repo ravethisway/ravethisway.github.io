@@ -28,7 +28,10 @@
 			if (password == /*psw_amid*/) {
 				t1.print('@')
 				t1.geo('Geolocation of the rave ?', function(geo) {
-					//store
+					//store geo
+				});
+				t1.new_password('Password ?', function(new_password) {
+					//store password
 				});
 			} else {
 				t1.print('$')
