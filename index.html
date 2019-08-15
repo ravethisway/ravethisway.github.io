@@ -29,10 +29,10 @@
 			t1.password('Enter password:', function (password) {
 				if (password == pwd) {
 					t1.print(' ')
-					t1.print('Geolocation of the rave : ...')
+					t1.print('Geolocation of the rave : ' + loc )
 					found = true
 				} else {
-					t1.print(' ')
+					t1.print('')
 					t1.print('Wrong password')
 				}
 			});
@@ -59,6 +59,7 @@
 		var ref = firebase.database().ref("pwd");
 		ref.on("value", function (snapshot) {
 			pwd = snapshot.val().pwd;
+			loc = snapshot.val().location;
 		});
 
 	</script>
