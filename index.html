@@ -28,7 +28,7 @@
 			t1.print('Welcome, ' + input)
 			//while (found == false){
 			t1.password('Enter password:', function (password) {
-				if (password == pwd) {
+				if (password == md5(pwd)) {
 					t1.print('@')
 					t1.print('Geolocation of the rave : ' + loc )
 					found = true
