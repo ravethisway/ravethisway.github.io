@@ -26,15 +26,16 @@
 			t1.password('Enter password:', function (password) {
 				var ref = firebase.database().ref(password);
 				ref.on("value", function (snapshot) {
-					loc = snapshot.val().location;
+					var loc = snapshot.val().location;
 				});
-				if (loc != null) {
-					t1.print('@')
-					t1.print('Geolocation of the rave : ' + loc )
-				} else {
-					t1.print('$')
-					t1.print('Wrong password')
-				}
+				console.log(loc);
+// 				if (loc != null) {
+// 					t1.print('@')
+// 					t1.print('Geolocation of the rave : ' + loc )
+// 				} else {
+// 					t1.print('$')
+// 					t1.print('Wrong password')
+// 				}
 			});
 		});
 	</script>
