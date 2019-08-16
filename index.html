@@ -24,7 +24,7 @@
 		t1.input('Whats your name?', function (input) {
 			t1.print('.')
 			t1.print('Welcome, ' + input)
-			while (found === false){
+			//while (found === false){
 				t1.password('Enter password:', function (password) {
 					if (md5(password) == pwd) {
 						t1.print('@')
@@ -35,7 +35,7 @@
 						t1.print('Wrong password')
 					}
 				});
-			}
+			//}
 		});
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
