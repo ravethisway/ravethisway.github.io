@@ -15,7 +15,7 @@
 <body>
 	<script>
 		var t1 = new Terminal()
-		var pwd;
+		var loc;
 		t1.setTextColor('#00FF41')
 		document.body.appendChild(t1.html)
 
@@ -24,10 +24,8 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('Enter password:', function (password) {
-				ref.on("value", function (snapshot) {
-					var loc = snapshot.val().location;
-				});
-				console.log(loc);
+				var location = find(password);
+				console.log(location);
 // 				if (loc != null) {
 // 					t1.print('@')
 // 					t1.print('Geolocation of the rave : ' + loc )
@@ -51,10 +49,17 @@
 			messagingSenderId: "1063733035747",
 			appId: "1:1063733035747:web:3810a6ed91ab9d2b"
 		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		var database = firebase.database();
-		var ref = firebase.database().ref('pwd');
+		
+		function find(password) {
+			// Initialize Firebase
+			firebase.initializeApp(firebaseConfig);
+			var database = firebase.database();
+			var ref = firebase.database().ref("pwd");
+			ref.on("value", function (snapshot) {
+				loc = snapshot.val().password;
+			});
+			return loc;
+		}
 
 	</script>
 	
