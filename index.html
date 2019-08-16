@@ -24,8 +24,7 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('Enter password:', function (password) {
-				var a = find(password)
-				console.log(a);
+				console.log(loc);
 // 				if (loc != null) {
 // 					t1.print('@')
 // 					t1.print('Geolocation of the rave : ' + loc )
@@ -53,13 +52,9 @@
 		firebase.initializeApp(firebaseConfig);
 		var database = firebase.database();
 		var ref = firebase.database().ref("pwd");
-		
-		function find(password) {
-			ref.on("value", function (snapshot) {
-			var loc = snapshot.val().bxl;
-			});
-			return loc;
-		}
+		ref.on("value", function (snapshot) {
+		var loc = snapshot.val().bxl;
+		});
 		
 
 	</script>
