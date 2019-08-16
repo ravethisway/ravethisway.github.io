@@ -8,7 +8,7 @@
 	<LINK REL="STYLESHEET" HREF="default.css">
 	<script src="terminal.js"></script>
 	<script src="support.js"></script>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<META NAME="RaveThisWay-Admin" CONTENT="Where To Go ?">
 </HEAD>
 
@@ -17,33 +17,29 @@
 		var found = false
 		var t1 = new Terminal()
 		var pwd_admin;
-		t1.setHeight("200px")
-		t1.setWidth('600px')
 		t1.setTextColor('#00FF41')
 		document.body.appendChild(t1.html)
 
-		
+
 		t1.print('Hello, administrator!')
 		t1.password('Enter password:', function (password) {
-			if (md5(password) == pwd_admin) {
+			if (password == pwd_admin) {
 				t1.print('@')
-				t1.input('Geolocation of the rave ?', function(input) {
-					ref.set({
+				t1.input('Update geolocation of the rave :', function writeLoc(input) {
+					firebase.database().ref('pwd/').update({
 						loc: input
 					});
-					t1.input('Password ?', function(input) {
-					ref.set({
-						pwd: md5(input)
+					t1.input('Update user password : ', function writeLoc(inputUpdatePwd) {
+						firebase.database().ref('pwd/').update({
+							pwd: inputUpdatePwd
+						});
 					});
-				});
 				});
 			} else {
 				t1.print('$')
 				t1.print('Wrong password')
 			}
 		});
-			
-		
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
@@ -65,7 +61,7 @@
 		var ref = firebase.database().ref("pwd");
 		ref.on("value", function (snapshot) {
 			pwd_admin = snapshot.val().pwd_admin;
+			loc = snapshot.val().loc;
 		});
-
 	</script>
 </body>
