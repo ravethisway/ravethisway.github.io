@@ -10,6 +10,24 @@
 	<script src="support.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<META NAME="RaveThisWay" CONTENT="Where To Go">
+		<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+	<script>
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyC-lT_T65uL5U5jGPrnC0oVW1j-H000sZs",
+			authDomain: "ravethisway.firebaseapp.com",
+			databaseURL: "https://ravethisway.firebaseio.com",
+			projectId: "ravethisway",
+			storageBucket: "ravethisway.appspot.com",
+			messagingSenderId: "1063733035747",
+			appId: "1:1063733035747:web:3810a6ed91ab9d2b"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+		var database = firebase.database();
+
+	</script>
 </HEAD>
 
 <body>
@@ -40,22 +58,5 @@
 			});
 		});
 	</script>
-	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-	<script>
-		// Your web app's Firebase configuration
-		var firebaseConfig = {
-			apiKey: "AIzaSyC-lT_T65uL5U5jGPrnC0oVW1j-H000sZs",
-			authDomain: "ravethisway.firebaseapp.com",
-			databaseURL: "https://ravethisway.firebaseio.com",
-			projectId: "ravethisway",
-			storageBucket: "ravethisway.appspot.com",
-			messagingSenderId: "1063733035747",
-			appId: "1:1063733035747:web:3810a6ed91ab9d2b"
-		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		var database = firebase.database();
-
-	</script>
+	
 </body>
