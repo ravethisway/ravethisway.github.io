@@ -24,6 +24,13 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('Enter password:', function (password) {
+				// Initialize Firebase
+				firebase.initializeApp(firebaseConfig);
+				var database = firebase.database();
+				var ref = firebase.database().ref("pwd");
+				ref.on("value", function (snapshot) {
+					loc = snapshot.val().bxl;
+				});
 				console.log(loc);
 // 				if (loc != null) {
 // 					t1.print('@')
@@ -48,13 +55,7 @@
 			messagingSenderId: "1063733035747",
 			appId: "1:1063733035747:web:3810a6ed91ab9d2b"
 		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-		var database = firebase.database();
-		var ref = firebase.database().ref("pwd");
-		ref.on("value", function (snapshot) {
-			loc = snapshot.val().bxl;
-		});
+		
 
 	</script>
 	
