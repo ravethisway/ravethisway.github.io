@@ -24,7 +24,6 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('Enter password:', function (password) {
-				var ref = firebase.database().ref(bxl);
 				ref.on("value", function (snapshot) {
 					var loc = snapshot.val().location;
 				});
@@ -55,6 +54,7 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		var database = firebase.database();
+		var ref = firebase.database().ref('pwd');
 
 	</script>
 	
