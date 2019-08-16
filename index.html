@@ -26,15 +26,16 @@
 			t1.password('Enter password:', function (password) {
 				if (arr.includes(password)) {
 					t1.print('@')
-					console.log(password);
 					t1.print('Geolocation of the rave : ' + loc[password])
-				}
-				// 				if (loc != null) {
-				// 					t1.print('@')
-				// 					t1.print('Geolocation of the rave : ' + loc )
-				else {
+					found = true;
+				} else {
 					t1.print('$')
 					t1.print('Wrong password')
+					t1.print('Try again in 10s..')
+					t1.sleep(10000, function () {
+						location.reload()
+					})
+
 				}
 			});
 		});
@@ -64,5 +65,4 @@
 			arr = Object.keys(loc);
 		});
 	</script>
-
 </body>
