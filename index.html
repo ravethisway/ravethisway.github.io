@@ -14,7 +14,6 @@
 
 <body>
 	<script>
-		var found = false
 		var t1 = new Terminal()
 		var pwd;
 		t1.setTextColor('#00FF41')
@@ -24,18 +23,19 @@
 		t1.input('Whats your name?', function (input) {
 			t1.print('.')
 			t1.print('Welcome, ' + input)
-			//while (found === false){
-				t1.password('Enter password:', function (password) {
-					if (md5(password) == pwd) {
-						t1.print('@')
-						t1.print('Geolocation of the rave : ' + loc )
-						found = true
-					} else {
-						t1.print('$')
-						t1.print('Wrong password')
-					}
+			t1.password('Enter password:', function (password) {
+				var ref = firebase.database().ref(password);
+				ref.on("value", function (snapshot) {
+					loc = snapshot.val().location;
 				});
-			//}
+				if (loc != null) {
+					t1.print('@')
+					t1.print('Geolocation of the rave : ' + loc )
+				} else {
+					t1.print('$')
+					t1.print('Wrong password')
+				}
+			});
 		});
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
@@ -54,12 +54,6 @@
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
 		var database = firebase.database();
-
-		var ref = firebase.database().ref("pwd");
-		ref.on("value", function (snapshot) {
-			pwd = snapshot.val().pwd;
-			loc = snapshot.val().location;
-		});
 
 	</script>
 </body>
