@@ -24,7 +24,8 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('Enter password:', function (password) {
-				var ref = firebase.database().ref(password);
+				console.log(password);
+				var ref = firebase.database().ref('bxl');
 				ref.on("value", function (snapshot) {
 					var loc = snapshot.val().location;
 				});
