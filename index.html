@@ -15,6 +15,7 @@
 	<script>
 		var t1 = new Terminal()
 		var loc;
+
 		t1.setTextColor('#00FF41')
 		document.body.appendChild(t1.html)
 
@@ -23,23 +24,15 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('Enter password:', function (password) {
-				if (arr.includes(password)) {
-					t1.print('@')
-					t1.print('Geolocation of the rave : ' + loc[password])
-					found = true;
-				} else {
-					t1.print('$')
-					t1.print('Wrong password')
-					t1.print('Try again in 10s..')
-					t1.sleep(10000, function () {
-						location.reload()
-					})
+				t1.print('@')
+				t1.print('Geolocation of the rave : ' + showEvent(password))
+				found = true;
 
-				}
 			});
 		});
 	</script>
 	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.5/firebase-functions.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 	<script>
 		// Your web app's Firebase configuration
@@ -55,13 +48,15 @@
 
 		var loc;
 		var arr;
-		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
+		var showEvent = firebase.functions().httpsCallable('showEvent');
+
+		// Initialize Firebase
 		var database = firebase.database();
-		var ref = firebase.database().ref("pwd");
-		ref.on("value", function (snapshot) {
-			loc = snapshot.val();
-			arr = Object.keys(loc);
-		});
+		// var ref = firebase.database().ref("pwd");
+		// ref.on("value", function (snapshot) {
+		// 	loc = snapshot.val();
+		// 	arr = Object.keys(loc);
+		// });
 	</script>
 </body>
