@@ -54,7 +54,7 @@ var Terminal = (function () {
 			} else if (shouldDisplayInput && e.which !== 13) {
 				setTimeout(function () {
 					terminalObj._inputLine.textContent = inputField.value
-				}, 1)
+				}, 0)
 			}
 		}
 		inputField.onkeyup = function (e) {
