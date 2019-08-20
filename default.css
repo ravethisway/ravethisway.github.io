@@ -1,11 +1,18 @@
 *{
     box-sizing: border-box;
 }
+
 body{
     margin: 0;
+
 }
 
 .Terminal{
     padding: 2em;
     height: 100vh !important;
+}
+
+#geoloc{
+    color: #00FF41;
+    text-decoration: none;
 }

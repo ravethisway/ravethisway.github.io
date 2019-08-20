@@ -7,6 +7,7 @@
 	<TITLE>RaveThisWay</TITLE>
 	<LINK REL="STYLESHEET" HREF="default.css">
 	<script src="terminal.js"></script>
+	<script src="default.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
 	<META NAME="RaveThisWay" CONTENT="Where To Go">
 </HEAD>
@@ -25,7 +26,7 @@
 			t1.password('Enter password:', function (password) {
 				if (arr.includes(password)) {
 					t1.print('@')
-					t1.print('Geolocation of the rave : ' + loc[password])
+					t1.print('Geolocation of the rave : ', "geoloc", loc[password])
 					found = true;
 				} else {
 					t1.print('$')
@@ -34,7 +35,6 @@
 					t1.sleep(10000, function () {
 						location.reload()
 					})
-
 				}
 			});
 		});

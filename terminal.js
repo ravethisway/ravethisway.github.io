@@ -105,8 +105,15 @@ var Terminal = (function () {
 		// 	terminalBeep.play()
 		// }
 
-		this.print = function (message) {
+		this.print = function (message, id, loc) {
 			var newLine = document.createElement('div')
+			if (id == "geoloc" && loc.startsWith("[")) {
+				var newLine = document.createElement('a')
+				newLine.id = id
+				newLine.href = "#"
+				newLine.setAttribute("onclick","mapsSelector(event, " + loc + ");")
+			}
+			if (loc) message = message + loc
 			newLine.textContent = message
 			this._output.appendChild(newLine)
 		}
