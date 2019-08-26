@@ -17,10 +17,11 @@ var Terminal = (function () {
 	}
 
 	var firstPrompt = true;
-	promptInput = function (terminalObj, message, PROMPT_TYPE, callback) {
+	promptInput = function (terminalObj, b_type, message, PROMPT_TYPE, callback) {
 		var shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT)
 		var inputField = document.createElement('input')
 
+		inputField.id = 'input_text'
 		inputField.style.position = 'absolute'
 		inputField.style.zIndex = '-100'
 		inputField.style.outline = 'none'
@@ -33,8 +34,11 @@ var Terminal = (function () {
 		terminalObj.html.appendChild(inputField)
 		fireCursorInterval(inputField, terminalObj)
 
-		if (message.length) terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message)
-
+		if (b_type) {
+			if (message.length) terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message , b_type)
+		} else {
+			if (message.length) terminalObj.print(PROMPT_TYPE === PROMPT_CONFIRM ? message + ' (y/n)' : message, b_type)
+		}
 		inputField.onblur = function () {
 			terminalObj._cursor.style.display = 'none'
 		}
@@ -78,7 +82,7 @@ var Terminal = (function () {
 		}
 	}
 
-	var terminalBeep
+	//var terminalBeep
 
 	var TerminalConstructor = function (id) {
 		// if (!terminalBeep) {
@@ -113,17 +117,21 @@ var Terminal = (function () {
 				newLine.href = "#"
 				newLine.setAttribute("onclick","mapsSelector(event, " + loc + ");")
 			}
+			if (id == 'label') {
+				var newLine = document.createElement('label')
+				newLine.setAttribute("for", "input_text")
+			}
 			if (loc) message = message + loc
 			newLine.textContent = message
 			this._output.appendChild(newLine)
 		}
 
-		this.input = function (message, callback) {
-			promptInput(this, message, PROMPT_INPUT, callback)
+		this.input = function (b_type, message, callback) {
+			promptInput(this, b_type, message, PROMPT_INPUT, callback)
 		}
 
-		this.password = function (message, callback) {
-			promptInput(this, message, PROMPT_PASSWORD, callback)
+		this.password = function (b_type, message, callback) {
+			promptInput(this, b_type, message, PROMPT_PASSWORD, callback)
 		}
 
 		this.confirm = function (message, callback) {
