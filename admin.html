@@ -77,20 +77,4 @@
 			});
 		});
 	</script>
-
-	<script>
-		import firebase from 'firebase';
-		export default {
-			methods: {
-				socialLogin() {
-					var provider = new firebase.auth.GoogleAuthProvider();
-					firebase.auth().signInWithPopup(provider).then((result) => {
-						this.$router.replace('home');
-					}).catch((err) => {
-						alert(err)
-					});
-				}
-			}
-		}
-	</script>
 </body>
