@@ -1,0 +1,31 @@
+{
+  "name": "RaveThisWay",
+  "short_name": "RaveThisWay",
+  "lang": "en-US",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "128x128"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "256x256"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "384x384"
+    },
+    {
+      "src": "favicon.ico",
+      "sizes": "512x512"
+    }
+  ]
+}
