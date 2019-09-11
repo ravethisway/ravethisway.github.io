@@ -56,46 +56,41 @@
 		};
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
-		var database = firebase.database();
 
-		var ref = firebase.database().ref("pwd");
-		ref.on("value", function (snapshot) {
-			pwd_admin = snapshot.val().pwd_admin;
-			loc = snapshot.val().loc;
+		firebase.auth().onAuthStateChanged(function (user) {
+			console.log("go");
+			var database = firebase.database();
+
+			var ref = firebase.database().ref("pwd");
+			ref.on("value", function (snapshot) {
+				pwd_admin = snapshot.val().pwd_admin;
+				loc = snapshot.val().loc;
+
+			});
 		});
 	</script>
 
-<script>
-	import firebase from 'firebase';
-	export default {
-		name: 'login',
-		data(){
-			return {
-			email: '',
-			password: ''
-			}
-		},
-	
-		methods: {
-			login: function(){
-				firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-					(user) =>{
-					this.$router.replace('home')
-					},
-					(err) =>{
-						alert('error' + err.message)
-					} 
-				);
+	<script>
+		import firebase from 'firebase';
+		export default {
+			name: 'login',
+			data() {
+				return {
+					email: '',
+					password: ''
+				}
 			},
-			socialLogin(){
-				var provider = new firebase.auth.GoogleAuthProvider();
-				firebase.auth().signInWithPopup(provider).then((result) => {
-					this.$router.replace('home');
-				}).catch((err) => {
-					alert(err)
-				});
+
+			methods: {
+				socialLogin() {
+					var provider = new firebase.auth.GoogleAuthProvider();
+					firebase.auth().signInWithPopup(provider).then((result) => {
+						this.$router.replace('home');
+					}).catch((err) => {
+						alert(err)
+					});
+				}
 			}
-		} 
-	}
+		}
 	</script>
 </body>
