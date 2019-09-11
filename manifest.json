@@ -8,23 +8,23 @@
   "background_color": "#000000",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon-128.png",
       "sizes": "128x128"
     },
     {
-      "src": "favicon.ico",
+      "src": "favicon-192.png",
       "sizes": "192x192"
     },
     {
-      "src": "favicon.ico",
+      "src": "favicon-256.png",
       "sizes": "256x256"
     },
     {
-      "src": "favicon.ico",
+      "src": "favicon-384.png",
       "sizes": "384x384"
     },
     {
-      "src": "favicon.ico",
+      "src": "favicon-512.png",
       "sizes": "512x512"
     }
   ]
