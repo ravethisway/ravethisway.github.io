@@ -64,17 +64,7 @@
 		};
 		// Initialize Firebase
 		firebase.initializeApp(firebaseConfig);
-		ui.start('#firebaseui-auth-container', {
-			signInOptions: [
-				// List of OAuth providers supported.
-				firebase.auth.GoogleAuthProvider.PROVIDER_ID
-
-			],
-			// Other config options...
-		});
-
 		var ui = new firebaseui.auth.AuthUI(firebase.auth());
-
 		var uiConfig = {
 			callbacks: {
 				signInSuccessWithAuthResult: function (authResult, redirectUrl) {
@@ -102,7 +92,15 @@
 			// Privacy policy url.
 			privacyPolicyUrl: '<your-privacy-policy-url>'
 		};
+		ui.start('#firebaseui-auth-container', {
+			signInOptions: [
+				// List of OAuth providers supported.
+				firebase.auth.GoogleAuthProvider.PROVIDER_ID
 
+			],
+			// Other config options...
+		});
+		
 		ui.start('#firebaseui-auth-container', uiConfig);
 		// firebase.auth().onAuthStateChanged(function (user) {
 		// 	console.log("go");
