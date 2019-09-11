@@ -41,7 +41,7 @@
 			}
 		});
 	</script>
-	<button class="social-button" @click="socialLogin">
+	<button class="social-button" onclick="socialLogin">
 		Sign in with Google
 			<img src="../assets/google-logo.png" alt="Google Logo" />
 	</button>
@@ -81,14 +81,6 @@
 	<script>
 		import firebase from 'firebase';
 		export default {
-			name: 'login',
-			data() {
-				return {
-					email: '',
-					password: ''
-				}
-			},
-
 			methods: {
 				socialLogin() {
 					var provider = new firebase.auth.GoogleAuthProvider();
