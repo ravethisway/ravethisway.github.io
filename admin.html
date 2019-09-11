@@ -24,7 +24,7 @@
 
 
 		t1.print('Hello, administrator!')
-		t1.password('Enter password:', function (password) {
+		t1.password("", 'Enter password:', function (password) {
 			if (password == pwd_admin) {
 				t1.print('@')
 				t1.input('Update geolocation of the rave :', function writeLoc(input) {
