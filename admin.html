@@ -7,7 +7,7 @@
 	<TITLE>RaveThisWay - Admin</TITLE>
 	<LINK REL="STYLESHEET" HREF="default.css">
 	<script src="terminal.js"></script>
-	<script src="default.js"></script>
+	<script src="support.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<META NAME="RaveThisWay-Admin" CONTENT="Where To Go ?">
 </HEAD>
@@ -41,7 +41,7 @@
 			}
 		});
 	</script>
-	<button class="social-button" onclick="socialLogin">
+	<button class="social-button" @click="socialLogin">
 		Sign in with Google
 			<img src="../assets/google-logo.png" alt="Google Logo" />
 	</button>
@@ -76,5 +76,16 @@
 
 			});
 		});
+		
+		function socialLogin() {
+					var provider = new firebase.auth.GoogleAuthProvider();
+					firebase.auth().signInWithPopup(provider).then((result) => {
+						this.$router.replace('home');
+					}).catch((err) => {
+						alert(err)
+					});
+				}
+			
+		
 	</script>
 </body>
