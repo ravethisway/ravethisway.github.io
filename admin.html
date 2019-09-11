@@ -41,7 +41,7 @@
 			}
 		});
 	</script>
-	<button class="social-button" @click="socialLogin">
+	<button class="social-button" onclick="socialLogin()">
 		Sign in with Google
 			<img src="../assets/google-logo.png" alt="Google Logo" />
 	</button>
@@ -78,6 +78,7 @@
 		});
 		
 		function socialLogin() {
+			console.log("tiparr")
 					var provider = new firebase.auth.GoogleAuthProvider();
 					firebase.auth().signInWithPopup(provider).then((result) => {
 						this.$router.replace('home');
