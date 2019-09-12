@@ -199,4 +199,17 @@
 		
 		ui.start('#firebaseui-auth-container', uiConfig);
 	</script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', function() {
+				navigator.serviceWorker.register('sw-admin.js')
+						.then(reg => {
+							console.log('Service worker registered! 😎', reg);
+						})
+						.catch(err => {
+							console.log('😥 Service worker registration failed: ', err);
+						});
+			});
+		}
+	</script>
 </body>
