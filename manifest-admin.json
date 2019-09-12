@@ -1,0 +1,31 @@
+{
+  "name": "RaveThisWay - Admin",
+  "short_name": "RaveThisWay-Admin",
+  "lang": "en-US",
+  "start_url": "/admin.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "favicon-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "favicon-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "favicon-384.png",
+      "sizes": "384x384"
+    },
+    {
+      "src": "favicon-512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
