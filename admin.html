@@ -28,18 +28,34 @@
 				if (typeof(user) != "undefined" && user != null) {
 					t1.print('@')
 					t1.input('label', 'User password?', function (password) {
-						t1.input('label', 'Lat?', function (lat) {
-							t1.input('label', 'Lng?', function (lng) {
-								firebase.database().ref('pwd/').update({
-									[password]: "['"+ lat +"', '"+ lng +"']"
-								}, function(error) {
-									if (error) {
-										console.log('The write failed...')
-									} else {
-										console.log('Data saved successfully!')
-									}
+						t1.input('label', 'Reveal?', function (reveal) {
+							if (reveal == 'yes') {
+								t1.input('label', 'Lat?', function (lat) {
+									t1.input('label', 'Lng?', function (lng) {
+										firebase.database().ref('pwd/').update({
+											[password]: "['"+ lat +"', '"+ lng +"']"
+										}, function(error) {
+											if (error) {
+												t1.print('The write failed...')
+											} else {
+												t1.print('Data saved successfully!')
+											}
+										});
+									});
 								});
-							});
+							} else {
+								t1.input('label', 'Message?', function (message) {
+									firebase.database().ref('pwd/').update({
+										[password]: message
+									}, function(error) {
+										if (error) {
+											t1.print('The write failed...')
+										} else {
+											t1.print('Data saved successfully!')
+										}
+									});
+								});
+							}
 						});
 					});
 				} else {
