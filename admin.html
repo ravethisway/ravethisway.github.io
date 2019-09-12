@@ -7,7 +7,7 @@
 	<TITLE>RaveThisWay - Admin</TITLE>
 	<LINK REL="STYLESHEET" HREF="default.css">
 	<script src="terminal.js"></script>
-	<script src="support.js"></script>
+	<script src="default.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<META NAME="RaveThisWay-Admin" CONTENT="Where To Go ?">
 	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
@@ -73,23 +73,11 @@
 					// Return type determines whether we continue the redirect automatically
 					// or whether we leave that to developer to handle.
 					// return true;
-					var user = firebase.auth().currentUser;
-					var name, email, photoUrl, uid, emailVerified;
 
-					if (user != null) {
-						name = user.displayName;
-						email = user.email;
-						photoUrl = user.photoURL;
-						emailVerified = user.emailVerified;
-						uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-										 // this value to authenticate with your backend server, if
-										 // you have one. Use User.getToken() instead.
-						console.log(uid)
-						firebase.database().ref('ravethisway/messages').set({
+						firebase.database().ref('messages/').set({
 							test: "test"
 						});
 
-					}
 				},
 				uiShown: function () {
 					// The widget is rendered.
