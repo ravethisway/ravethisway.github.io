@@ -85,7 +85,7 @@
 					// Return type determines whether we continue the redirect automatically
 					// or whether we leave that to developer to handle.
 					// return true;
-					var user = firebase.auth().currentUser;
+					window.user = firebase.auth().currentUser;
 				},
 				uiShown: function () {
 					// The widget is rendered.
