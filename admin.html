@@ -73,7 +73,23 @@
 					// Return type determines whether we continue the redirect automatically
 					// or whether we leave that to developer to handle.
 					// return true;
-					console.log("ssssss");
+					var user = firebase.auth().currentUser;
+					var name, email, photoUrl, uid, emailVerified;
+
+					if (user != null) {
+						name = user.displayName;
+						email = user.email;
+						photoUrl = user.photoURL;
+						emailVerified = user.emailVerified;
+						uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+										 // this value to authenticate with your backend server, if
+										 // you have one. Use User.getToken() instead.
+						console.log(name)
+						console.log(email)
+						console.log(photoUrl)
+						console.log(emailVerified)
+						console.log(uid)
+					}
 				},
 				uiShown: function () {
 					// The widget is rendered.
