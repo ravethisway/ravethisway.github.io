@@ -18,28 +18,40 @@
 	<script>
 		var found = false
 		var t1 = new Terminal()
-		var pwd_admin;
 		t1.setTextColor('#00FF41')
 		document.body.appendChild(t1.html)
 
 
-		t1.print('Hello, administrator!')
-		t1.password("", 'Enter password:', function (password) {
-			if (password == pwd_admin) {
-				t1.print('@')
-				t1.input('Update geolocation of the rave :', function writeLoc(input) {
-					firebase.database().ref('pwd/').update({
-						loc: input
-					});
-					t1.input('Update user password : ', function writeLoc(inputUpdatePwd) {
-						firebase.database().ref('pwd/').update({
-							pwd: inputUpdatePwd
+		t1.print('Hello, administrator?')
+		t1.confirm('Is that you?', function (didConfirm) {
+			if (didConfirm) {
+				if (user != null) {
+					t1.print('@')
+					t1.input('User password?', function (password) {
+						t1.input('Lat?', function (lat) {
+							t1.input('Lng?', function (lng) {
+								firebase.database().ref('pwd/').update({
+									[password]: "['"+ lat +"', '"+ lng +"']"
+								}, function(error) {
+									if (error) {
+										console.log('The write failed...')
+									} else {
+										console.log('Data saved successfully!')
+									}
+								});
+							});
 						});
 					});
-				});
+				} else {
+					t1.print('$')
+					t1.print('Not you, go away!')
+				}
 			} else {
-				t1.print('$')
-				t1.print('Wrong password')
+				t1.print('@')
+				t1.print('What are you doing here then?')
+				t1.sleep(10000, function () {
+					location.href = 'https://ravethisway.github.io'
+				})
 			}
 		});
 	</script>
@@ -73,11 +85,7 @@
 					// Return type determines whether we continue the redirect automatically
 					// or whether we leave that to developer to handle.
 					// return true;
-
-						firebase.database().ref('messages/').set({
-							test: "test"
-						});
-
+					var user = firebase.auth().currentUser;
 				},
 				uiShown: function () {
 					// The widget is rendered.
