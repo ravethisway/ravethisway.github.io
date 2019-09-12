@@ -2,6 +2,7 @@ const cacheName = 'cache-v1';
 const precacheResources = [
     '/',
     'index.html',
+    'admin.html',
     'default.css',
     'default.js',
     'favicon.ico',
