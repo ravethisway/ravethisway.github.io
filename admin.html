@@ -25,7 +25,7 @@
 		t1.print('Hello, administrator?')
 		t1.input('label','Is that you?', function (didConfirm) {
 			if (didConfirm === 'yes') {
-				if (typeof user !== 'undefined' && user != null) {
+				if (isset(() => user) && user != null) {
 					t1.print('@')
 					t1.input('User password?', function (password) {
 						t1.input('Lat?', function (lat) {
