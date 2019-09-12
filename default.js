@@ -12,15 +12,6 @@ function mapsSelector(e,l) {
         window.open("https://maps.google.com/maps?daddr=" + lat + "," + long + "&amp;ll=");
 }
 
-function socialLogin() {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then((result) => {
-            this.$router.replace('home');
-        }).catch((err) => {
-            alert(err)
-        });
-}
-
 function isset (accessor) {
     try {
         // Note we're seeing if the returned value of our function is not
