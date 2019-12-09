@@ -70,18 +70,21 @@
 			t1.print('.')
 			t1.print('Welcome, ' + input)
 			t1.password('', 'Enter password:', function (password) {
-				if (arr.includes(password)) {
-					t1.print('@')
-					t1.print('Geolocation of the rave : ', "geoloc", loc[password])
-					found = true;
-				} else {
-					t1.print('$')
-					t1.print('Wrong password')
-					t1.print('Try again in 10s..')
-					t1.sleep(10000, function () {
-						location.reload()
-					})
-				}
+				getLocation(password).then( value => {
+					if (value !== 'noo') {
+						t1.print('@')
+						t1.print('Geolocation of the rave : ', "geoloc", value)
+						found = true;
+					} else {
+						t1.print('$')
+						t1.print('Wrong password')
+						t1.print('Try again in 10s..')
+						t1.sleep(10000, function () {
+							location.reload()
+						})
+					}
+				});
+
 			});
 		});
 	</script>

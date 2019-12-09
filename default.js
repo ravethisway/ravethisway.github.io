@@ -24,4 +24,39 @@ function isset (accessor) {
     }
 }
 
+//RAVETHIWAY
+function getLocation(psw) {
+    let loca = 'noo'
+    const myInit =  {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        cache: 'default'
+    }
+    const url = 'http://api-platform-admin.herokuapp.com/api/events.json'
+        //+ id + '.json'
+    return fetch(url, myInit)
+        .then(function(data) {
+            return data.json().then((data) => {
+                data.forEach(element => {
+                    if (element.password === psw) {
+                        loca = '[' + element.lat + ', ' + element.lng + ']'
+                    }
+                })
+                return loca
+            })
+        })
+        .catch(function(error) {
+            console.log('error: ' + error)
+        });
+}
+
+//RAVETHISWAY-ADMIN
+function updateLocation(psw) {
+
+}
+
+
+
 
