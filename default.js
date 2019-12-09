@@ -34,7 +34,7 @@ function getLocation(psw) {
         },
         cache: 'default'
     }
-    const url = 'http://api-platform-admin.herokuapp.com/api/events.json'
+    const url = 'https://api-platform-admin.herokuapp.com/api/events.json'
         //+ id + '.json'
     return fetch(url, myInit)
         .then(function(data) {
