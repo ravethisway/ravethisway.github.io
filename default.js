@@ -35,7 +35,6 @@ function getLocation(psw) {
         cache: 'default'
     }
     const url = 'https://api-platform-admin.herokuapp.com/api/events.json'
-        //+ id + '.json'
     return fetch(url, myInit)
         .then(function(data) {
             return data.json().then((data) => {
@@ -53,8 +52,43 @@ function getLocation(psw) {
 }
 
 //RAVETHISWAY-ADMIN
-function updateLocation(psw) {
-
+function updateLocation(lat, lng, password) {
+    //GET ID FROM PWD
+    let id = ''
+    const myInit1 =  {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        cache: 'default'
+    }
+    const url1 = 'https://api-platform-admin.herokuapp.com/api/events.json'
+    fetch(url1, myInit1)
+        .then(function(data) {
+            data.json().then((data) => {
+                data.forEach(element => {
+                    if (element.password === password) {
+                        //UPDATE LAT LNG
+                        const myInit =  {
+                            method: 'PATCH',
+                            body: JSON.stringify({
+                                lat: lat,
+                                lng: lng
+                            }),
+                            headers: {
+                                'Content-type': 'application/merge-patch+json'
+                            }
+                        }
+                        const url = 'https://api-platform-admin.herokuapp.com/api/events/' + element.id
+                        fetch(url, myInit).then(response => response.json())
+                            .then(json => console.log(json))
+                    }
+                })
+            })
+        })
+        .catch(function(error) {
+            console.log('error: ' + error)
+        });
 }
 
 

@@ -99,28 +99,32 @@
 							if (reveal == 'yes') {
 								t1.input('label', 'Lat?', function (lat) {
 									t1.input('label', 'Lng?', function (lng) {
-										firebase.database().ref('pwd/').update({
-											[password]: "['"+ lat +"', '"+ lng +"']"
-										}, function(error) {
-											if (error) {
-												t1.print('The write failed...')
-											} else {
-												t1.print('Data saved successfully!')
-											}
-										});
+										updateLocation(lat, lng, password)
+
+										// firebase.database().ref('pwd/').update({
+										// 	[password]: "['"+ lat +"', '"+ lng +"']"
+										// }, function(error) {
+										// 	if (error) {
+										// 		t1.print('The write failed...')
+										// 	} else {
+										// 		t1.print('Data saved successfully!')
+										// 	}
+										// });
 									});
 								});
 							} else {
 								t1.input('label', 'Message?', function (message) {
-									firebase.database().ref('pwd/').update({
-										[password]: message
-									}, function(error) {
-										if (error) {
-											t1.print('The write failed...')
-										} else {
-											t1.print('Data saved successfully!')
-										}
-									});
+									updateLocation(message, ' -- ¨ ° ¨.', password)
+									
+									// firebase.database().ref('pwd/').update({
+									// 	[password]: message
+									// }, function(error) {
+									// 	if (error) {
+									// 		t1.print('The write failed...')
+									// 	} else {
+									// 		t1.print('Data saved successfully!')
+									// 	}
+									// });
 								});
 							}
 						});
