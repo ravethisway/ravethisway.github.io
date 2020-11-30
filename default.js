@@ -67,7 +67,7 @@ function updateLocation(lat, lng, password) {
         .then(function(data) {
             data.json().then((data) => {
                 data.forEach(element => {
-                    if (element.name === password) {
+                    if (element.password === password) {
                         //UPDATE LAT LNG
                         const myInit =  {
                             method: 'PATCH',
