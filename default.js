@@ -39,7 +39,7 @@ function getLocation(psw) {
         .then(function(data) {
             return data.json().then((data) => {
                 data.forEach(element => {
-                    if (element.name === psw) {
+                    if (element.password === psw) {
                         loca = '[' + element.lat + ', ' + element.lng + ']'
                     }
                 })
