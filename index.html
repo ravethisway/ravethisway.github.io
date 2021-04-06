@@ -69,7 +69,7 @@
 		t1.input('label','Whats your name?', function (input) {
 			t1.print('.')
 			t1.print('Welcome, ' + input)
-			t1.password('', 'Enter password:', function (password) {
+			t1.password('', 'Enter password (MASKED/HIDDEN) + ENTER:', function (password) {
 				getLocation(password).then( value => {
 					if (value !== 'noo') {
 						t1.print('@')
