@@ -8,6 +8,12 @@
   "background_color": "#000000",
   "icons": [
     {
+      "src": "maskable_icon.png",
+      "sizes": "150x150",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
       "src": "favicon-128.png",
       "sizes": "128x128"
     },
