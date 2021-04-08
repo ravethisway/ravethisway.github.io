@@ -26,7 +26,9 @@ function isset (accessor) {
 
 //RAVETHIWAY
 function getLocation(psw) {
-    let loca = 'noo'
+    let response = []
+    response['loca'] = 'noo'
+    response['desc'] = ' '
     const myInit =  {
         method: 'GET',
         headers: {
@@ -40,10 +42,11 @@ function getLocation(psw) {
             return data.json().then((data) => {
                 data.forEach(element => {
                     if (element.password === psw) {
-                        loca = '[' + element.lat + ', ' + element.lng + ']'
+                        response['desc'] = element.description
+                        response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
                     }
                 })
-                return loca
+                return response
             })
         })
         .catch(function(error) {
