@@ -72,7 +72,12 @@
 			t1.password('', 'Enter password (MASKED/HIDDEN) + ENTER:', function (password) {
 				getLocation(password.toLowerCase()).then( value => {
 					if (value['loca'] !== 'noo') {
+						t1.print('Geolocation of the rave : ', "geoloc", value['loca'])
+						t1.print('.')
+						t1.print('.')
 						t1.print(value['desc'])
+						t1.print('@')
+						t1.print('@')
 						t1.print('Geolocation of the rave : ', "geoloc", value['loca'])
 						found = true;
 					} else {
