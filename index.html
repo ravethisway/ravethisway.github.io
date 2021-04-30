@@ -69,7 +69,7 @@
 		t1.input('label','Whats your name?', function (input) {
 			t1.print('.')
 			t1.print('Welcome, ' + input)
-			t1.password('', 'Enter password (MASKED/HIDDEN) + ENTER:', function (password) {
+			t1.password('', 'Enter password:', function (password) {
 				getLocation(password.toLowerCase()).then( value => {
 					if (value['loca'] !== 'noo') {
 						t1.print('Geolocation of the rave : ', "geoloc", value['loca'])
