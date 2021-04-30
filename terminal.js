@@ -18,7 +18,7 @@ var Terminal = (function () {
 
 	var firstPrompt = true;
 	promptInput = function (terminalObj, b_type, message, PROMPT_TYPE, callback) {
-		var shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT)
+		var shouldDisplayInput = true
 		var inputField = document.createElement('input')
 
 		inputField.id = 'input_text'
