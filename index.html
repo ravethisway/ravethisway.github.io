@@ -72,13 +72,10 @@
 			t1.password('', 'Enter password:', function (password) {
 				getLocation(password.toLowerCase()).then( value => {
 					if (value['loca'] !== 'noo') {
-						t1.print('Itinerary to the rave : ', "geoloc", value['loca'])
-						t1.print('.')
-						t1.print('.')
+						t1.print(value['name'])
+						t1.print('@')
 						t1.print(value['desc'])
-						t1.print('@')
-						t1.print('@')
-						t1.print('Itinerary to the rave : ', "geoloc", value['loca'])
+						t1.print('** ', "geoloc", value['loca'])
 						found = true;
 					} else {
 						t1.print('$')
