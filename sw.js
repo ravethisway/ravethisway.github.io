@@ -1,4 +1,4 @@
-const cacheName = 'cache-v1';
+/*const cacheName = 'cache-v1';
 const precacheResources = [
     '/',
     'index.html',
@@ -32,4 +32,18 @@ self.addEventListener('fetch', event => {
             return fetch(event.request);
         })
     );
+});
+*/
+self.addEventListener('install', function(e) {
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', function(e) {
+  self.registration.unregister()
+    .then(function() {
+      return self.clients.matchAll();
+    })
+    .then(function(clients) {
+      clients.forEach(client => client.navigate(client.url))
+    });
 });
