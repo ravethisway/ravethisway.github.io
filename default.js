@@ -36,22 +36,22 @@ function getLocation(psw) {
         },
         cache: 'default'
     }
-    const url = 'https://api-platform-admin.herokuapp.com/api/events.json'
-    return fetch(url, myInit)
-        .then(function(data) {
-            return data.json().then((data) => {
-                data.forEach(element => {
-                    if (element.password === psw) {
-                        response['desc'] = element.description
-                        response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
+    //const url = 'https://api-platform-admin.herokuapp.com/api/events.json'
+    //return fetch(url, myInit)
+        //.then(function(data) {
+            //return data.json().then((data) => {
+                //data.forEach(element => {
+                    if (process.env.PSW1 === psw) {
+                        response['desc'] = process.env.ANSWER1
+                        //response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
                     }
-                })
-                return response
-            })
-        })
-        .catch(function(error) {
-            console.log('error: ' + error)
-        });
+                //})
+                //return response
+            //})
+        //})
+        //.catch(function(error) {
+            //console.log('error: ' + error)
+        //});
 }
 
 
