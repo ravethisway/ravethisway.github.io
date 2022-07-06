@@ -41,8 +41,8 @@ function getLocation(psw) {
         //.then(function(data) {
             //return data.json().then((data) => {
                 //data.forEach(element => {
-                    if (process.env.PSW1 === psw) {
-                        response['desc'] = process.env.ANSWER1
+                    if (${{ secrets.PSW1 }} === psw) {
+                        response['desc'] = ${{ secrets.ANSWER1 }}
                         //response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
                     }
                 //})
