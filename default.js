@@ -26,32 +26,59 @@ function isset (accessor) {
 
 //RAVETHIWAY
 function getLocation(psw) {
+    
+    
+    async function postData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+
+postData('https://waterfull.netlify.app/api/checkpsw', { '1312': 'test' })
+  .then(data => {
+    console.log(data); // JSON data parsed by `data.json()` call
+  });
+    
+    /*
     let response = []
     response['loca'] = 'noo'
     response['desc'] = ' '
     const myInit =  {
-        method: 'GET',
+        method: 'POST',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json'
         },
         cache: 'default'
     }
-    //const url = 'https://api-platform-admin.herokuapp.com/api/events.json'
-    //return fetch(url, myInit)
-        //.then(function(data) {
-            //return data.json().then((data) => {
-                //data.forEach(element => {
+    const url = 'https://waterfull.netlify.app/api/checkpsw'
+    return fetch(url, myInit)
+        .then(function(data) {
+            return data.json().then((data) => {
+                data.forEach(element => {
                     if (${{ secrets.PSW1 }} === psw) {
                         response['desc'] = ${{ secrets.ANSWER1 }}
-                        //response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
+                        response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
                     }
-                //})
-                //return response
-            //})
-        //})
-        //.catch(function(error) {
-            //console.log('error: ' + error)
-        //});
+                })
+                return response
+            })
+        })
+        .catch(function(error) {
+            console.log('error: ' + error)
+        });*/
 }
 
 
