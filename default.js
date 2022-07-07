@@ -54,35 +54,6 @@ function getLocation(psw) {
             console.log(response)
             return response
         });
-   
-    /*
-    let response = []
-    response['loca'] = 'noo'
-    response['desc'] = ' '
-    const myInit =  {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        cache: 'default'
-    }
-    const url = 'https://waterfull.netlify.app/api/checkpsw'
-    return fetch(url, myInit)
-        .then(function(data) {
-            return data.json().then((data) => {
-                data.forEach(element => {
-                    if (${{ secrets.PSW1 }} === psw) {
-                        response['desc'] = ${{ secrets.ANSWER1 }}
-                        response['loca'] = '[' + element.lat + ', ' + element.lng + ']'
-                    }
-                })
-                return response
-            })
-        })
-        .catch(function(error) {
-            console.log('error: ' + error)
-        });*/
 }
 
 
