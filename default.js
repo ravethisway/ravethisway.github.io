@@ -26,7 +26,9 @@ function isset (accessor) {
 
 //RAVETHIWAY
 function getLocation(psw) {
-    
+    let response = []
+    response['loca'] = 'noo'
+    response['desc'] = ' '
     
     async function postData(url = '', data = {}) {
   // Default options are marked with *
@@ -49,7 +51,6 @@ function getLocation(psw) {
 postData('https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
   .then(data => {
     response['desc'] = JSON.stringify(data)
-    response['loca'] = ' '
   });
     return response
     /*
