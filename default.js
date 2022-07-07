@@ -25,7 +25,7 @@ function isset (accessor) {
 }
 
 //RAVETHIWAY
-async function postData(url = '', data = {}) {
+async function checkPsw(url = '', data = {}) {
     const response = await fetch(url, {
         method: 'POST', 
         mode: 'cors',
@@ -45,13 +45,12 @@ function getLocation(psw) {
     let response = []
     response['loca'] = 'noo'
     response['desc'] = ' '
-    return postData('	https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
+    return checkPsw('https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
         .then(data => {
-            console.log(data)
-            console.log(data.data)
-            response['desc'] = data.data
-            response['loca'] = ' '
-            console.log(response)
+            if (data.data !== 'no') {
+                response['desc'] = data.data
+                response['loca'] = ' '
+            }
             return response
         });
 }
