@@ -48,13 +48,14 @@ function getLocation(psw) {
   return response.json(); // parses JSON response into native JavaScript objects
 }
 
-postData('https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
-  .then(data => {
+const res = postData('https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
+console.log(res)
+  /*.then(data => {
     console.log('yo')
     console.log(data)
     response['desc'] = JSON.stringify(data.data)
     response['loca'] = ' '
-  });
+  });/*
     return response
     /*
     let response = []
