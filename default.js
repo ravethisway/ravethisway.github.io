@@ -46,7 +46,7 @@ function getLocation(psw) {
     return response;
     }
 
-    postData('https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
+    postData('	https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
         .then(data => {
             console.log('yo')
             console.log(data)
