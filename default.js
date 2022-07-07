@@ -33,7 +33,7 @@ function getLocation(psw) {
     async function postData(url = '', data = {}) {
       const response = await fetch(url, {
         method: 'POST', 
-        mode: 'cors', ]
+        mode: 'cors',
         cache: 'default',
         credentials: 'same-origin',
         headers: {
