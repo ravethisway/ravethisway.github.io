@@ -45,18 +45,16 @@ function getLocation(psw) {
     let response = []
     response['loca'] = 'noo'
     response['desc'] = ' '
-    
-    
-
-    postData('	https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
+    return postData('	https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
         .then(data => {
             console.log(data)
             console.log(data.data)
             response['desc'] = data.data
             response['loca'] = ' '
             console.log(response)
+            return response
         });
-    return response
+   
     /*
     let response = []
     response['loca'] = 'noo'
