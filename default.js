@@ -50,7 +50,7 @@ function getLocation(psw) {
 
 postData('https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
   .then(data => {
-    response['desc'] = JSON.stringify(data)
+    response['desc'] = JSON.stringify(data.data)
     response['loca'] = ' '
   });
     return response
