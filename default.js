@@ -38,7 +38,7 @@ function getLocation(psw) {
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, *same-origin, omit
     headers: {
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'https://waterfull.netlify.app/api/checkpsw',
     'Access-Control-Allow-Headers': 'Content-Type',
       'Content-Type': 'application/json'
       // 'Content-Type': 'application/x-www-form-urlencoded',
