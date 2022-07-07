@@ -43,7 +43,7 @@ function getLocation(psw) {
         //referrerPolicy: 'no-referrer',
         body: JSON.stringify(data)
       });
-    return response.json;
+    return response.body;
     }
 
     postData('	https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
