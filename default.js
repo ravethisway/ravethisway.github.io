@@ -51,7 +51,7 @@ postData('https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
     response['desc'] = JSON.stringify(data)
     response['loca'] = ' '
   });
-    
+    return response
     /*
     let response = []
     response['loca'] = 'noo'
