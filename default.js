@@ -45,7 +45,7 @@ function getLocation(psw) {
     let response = []
     response['loca'] = 'noo'
     response['desc'] = ' '
-    return checkPsw('https://cors-anywhere.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
+    return checkPsw('https://still-reaches-12723.herokuapp.com/https://waterfull.netlify.app/api/checkpsw', { "checkThis": psw })
         .then(data => {
             if (data.data !== 'no') {
                 response['desc'] = data.data
